@@ -15,22 +15,22 @@ class App extends Component {
 
   // Method to handle state changes from children
   handleUpdate = (id) => {
-    console.log("Parent received event for ID:", id);
-    // TODO: Logic to update the specific child in this.state
-    // 1. Find the character in state by id
-    // 2. Change their image property (e.g., to a 'happy' version)
-    // 3. Update state using this.setState()
-    
-      
-    const updatedCharacters = this.state.characters.map(char => {
-      if(char.id === id) {
-         return { ...char, image: 'NEW_IMAGE_URL', status: 'Updated!' };
-      }
-      return char;
-    });
-    this.setState({ characters: updatedCharacters });
-    
-  }
+  const updatedCharacters = this.state.characters.map((char) => {
+    if (char.id === id) {
+      const isHappy = char.status === 'Happy';
+
+      return {
+        ...char,
+        image: isHappy ? char.sadImage : char.happyImage,
+        status: isHappy ? 'Sad' : 'Happy'
+      };
+    }
+    return char;
+  });
+
+  this.setState({ characters: updatedCharacters });
+};
+
 
   render() {
     return (

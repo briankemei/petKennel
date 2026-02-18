@@ -1,14 +1,15 @@
+
 export const initialData = [
   {
     id: 1,
-    name: "Happy dog",
-    status: "Hungry",
-    image: "./src/assets/Happy fog.jpg"
-  },
-  {
-    id: 2,
-    name: "Sad dog",
+    name: "Dog",
+
+    // current state
     status: "Sad",
-    image: "./src/assets/sad dog.jpg"
+    image: "/src/assets/sad dog.jpg",
+
+    // reference images for toggling
+    happyImage: "/src/assets/Happy fog.jpg",
+    sadImage: "/src/assets/sad dog.jpg"
   }
 ];
